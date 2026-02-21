@@ -1,11 +1,11 @@
-package com.blackrock.challenge.dto.response;
+package com.blackrock.challenge.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-public class EnrichedTransactionResponse {
-
+public class Transaction {
     @JsonFormat(shape = JsonFormat.Shape.STRING,
             pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime date;
@@ -53,5 +53,17 @@ public class EnrichedTransactionResponse {
                 ", ceiling=" + ceiling +
                 ", remanent=" + remanent +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Transaction that = (Transaction) o;
+        return Objects.equals(date, that.date) && Objects.equals(amount, that.amount) && Objects.equals(ceiling, that.ceiling) && Objects.equals(remanent, that.remanent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(date, amount, ceiling, remanent);
     }
 }
