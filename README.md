@@ -91,5 +91,6 @@ src/
 
 ## Notes
 
+- Please refer Blackrock-Challenge.postman_collection.json, import it in your postman/insomnia and try the requests.
 - The Docker image runs as a non-root user (`appuser`) for security.
 - JVM is configured with container-aware memory settings (`-XX:+UseContainerSupport`, `-XX:MaxRAMPercentage=75.0`).
