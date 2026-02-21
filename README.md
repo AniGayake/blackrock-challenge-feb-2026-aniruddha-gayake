@@ -4,6 +4,7 @@
 
 A Spring Boot REST API built for the BlackRock February 2026 coding challenge.
 
+Docker hub image link - https://hub.docker.com/repository/docker/anigayake96/blk-hacking-ind-aniruddha-gayake/general
 ---
 
 ## Tech Stack
