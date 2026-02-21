@@ -1,8 +1,10 @@
 package com.blackrock.challenge.web;
 
 import com.blackrock.challenge.dto.request.ExpensesRequest;
+import com.blackrock.challenge.dto.request.TransactionFilterRequest;
 import com.blackrock.challenge.dto.request.TransactionValidationRequest;
 import com.blackrock.challenge.dto.response.ApiResponse;
+import com.blackrock.challenge.dto.response.TransactionFilterResponse;
 import com.blackrock.challenge.dto.response.TransactionResponse;
 import com.blackrock.challenge.dto.response.TransactionValidationResponse;
 import com.blackrock.challenge.service.TransactionCoreService;
@@ -42,6 +44,13 @@ public class TransactionController {
 
         TransactionValidationResponse response = transactionCoreService.validateTransactions(transactionValidationRequest);
         return ResponseEntity.ok(ApiResponse.success("Validated",response));
+    }
+
+    @PostMapping("/transactions:filter")
+    public ResponseEntity<ApiResponse<TransactionFilterResponse>> filterTransactions(@Valid @RequestBody TransactionFilterRequest transactionFilterRequest){
+
+        TransactionFilterResponse response = transactionCoreService.filterTransactions(transactionFilterRequest);
+        return ResponseEntity.ok(ApiResponse.success("Filtered",response));
     }
 
 }
